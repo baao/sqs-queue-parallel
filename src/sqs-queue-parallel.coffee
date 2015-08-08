@@ -45,7 +45,7 @@ module.exports = class SqsQueueParallel extends events.EventEmitter
 					async.eachSeries queue.Messages, (message, next) ->
 						self.emit "message",
 							type: 'message'
-							data: JSON.parse(message.Body) or message.Body
+							data: message.Body
 							message: message
 							metadata: queue.ResponseMetadata
 							url: self.url
