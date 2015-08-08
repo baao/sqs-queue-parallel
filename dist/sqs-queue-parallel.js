@@ -76,7 +76,7 @@
             return async.eachSeries(queue.Messages, function(message, next) {
               return self.emit("message", {
                 type: 'message',
-                data: JSON.parse(message.Body) || message.Body,
+                data: message.Body,
                 message: message,
                 metadata: queue.ResponseMetadata,
                 url: self.url,
